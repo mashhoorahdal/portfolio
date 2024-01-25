@@ -1,0 +1,15 @@
+/* CustomCursor.css */
+
+.custom-cursor {
+    position: fixed;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #d1d0d0;
+    border-radius: 50%;
+    background-color: transparent;
+    mix-blend-mode: difference; /* This is optional and can be adjusted based on your design */
+    pointer-events: none; /* Ensure the cursor doesn't interfere with click events */
+    transform: translate(-50%, -50%);
+    transition: transform 0.2s ease;
+  }
+  
