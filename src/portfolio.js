@@ -9,7 +9,7 @@ const header = {
     name: 'Mashhoor Ahdal',
     role: 'Front End Engineer | Python ',
     description:
-      'Adipisicing sit fugit ullam unde aliquid sequi Facilis soluta facilis perspiciatis corporis nulla aspernatur. Autem eligendi rerum delectus modi quisquam? Illo ut quasi nemo ipsa cumque perspiciatis! Maiores minima consectetur.',
+      'Highly motivated and dedicated B.Tech Computer Science student with a strong academic background and a passion for software development. Seeking a challenging position to leverage my technical skills and contribute to the success of a progressive organization.',
     resume: 'https://drive.google.com/file/d/1I7-s605RzLRFzyVOkf1La99rrU7i_U81/view?usp=drive_link',
     social: {
       linkedin: 'https://linkedin.com/in/mashhoor-ahdal',
