@@ -13,7 +13,7 @@ const header = {
     resume: 'https://drive.google.com/file/d/1I7-s605RzLRFzyVOkf1La99rrU7i_U81/view?usp=drive_link',
     social: {
       linkedin: 'https://linkedin.com/in/mashhoor-ahdal',
-      github: 'https://github.com/mashhoor-ahdal',
+      github: 'https://github.com/mashhoorahdal',
     },
   }
   
@@ -25,7 +25,7 @@ const header = {
       description:
         ' Web application leveraging Firebase to facilitate the organized retrieval and downloading of PDF study materials',
       stack: ['Javascript', 'Firebase'],
-      sourceCode: 'https://github.com/mashhoor-ahdal/Edulinx',
+      sourceCode: 'https://github.com/mashhoorahdal/Edulinx',
       livePreview: 'edulinx.vercel.app',
     },
     {
@@ -34,7 +34,7 @@ const header = {
         ' Web-based application utilizing Flask and integrated APIs to empower users to create, customize, and download images easily.',
     
       stack: ['Flask', 'HuggingFace', 'Python'],
-      sourceCode: 'https://github.com/mashhoor-ahdal/image_generator',
+      sourceCode: 'https://github.com/mashhoorahdal/image_generator',
       livePreview: '',
     },
     {
@@ -42,15 +42,15 @@ const header = {
       description:
         'Minimal developer portfolio built using react ',
       stack: ['React', 'Git', 'CSS'],
-      sourceCode: 'https://github.com/mashhoor-ahdal/mashhoor.github.io',
-      livePreview: 'https://mashhoor.github.io',
+      sourceCode: 'https://github.com/mashhoorahdal/mashhoor.github.io',
+      livePreview: 'https://mashhoorahdal.github.io/portfolio',
     },
     {
         name: 'Django-Todo',
         description:
           'Todo App to facilitate the CRUD operations in Django  ',
         stack: ['Django', 'Python', 'Sqlite'],
-        sourceCode: 'https://github.com/mashhoor-ahdal/django-todo',
+        sourceCode: 'https://github.com/mashhoorahdal/django-todo',
         
       },
   ]
