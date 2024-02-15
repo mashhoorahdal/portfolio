@@ -26,7 +26,7 @@ const header = {
         ' Web application leveraging Firebase to facilitate the organized retrieval and downloading of PDF study materials',
       stack: ['Javascript', 'Firebase'],
       sourceCode: 'https://github.com/mashhoorahdal/Edulinx',
-      livePreview: 'edulinx.vercel.app',
+      livePreview: 'https://edulinx.vercel.app',
     },
     {
       name: 'PromptImage',
