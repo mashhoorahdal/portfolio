@@ -7,7 +7,7 @@ const header = {
   const about = {
     // all the properties are optional - can be left empty or deleted
     name: 'Mashhoor Ahdal',
-    role: 'Front End Engineer | Python ',
+    role: 'Front End Developer | Python ',
     description:
       'Highly motivated and dedicated B.Tech Computer Science student with a strong academic background and a passion for software development. Seeking a challenging position to leverage my technical skills and contribute to the success of a progressive organization.',
     resume: 'https://drive.google.com/file/d/1I7-s605RzLRFzyVOkf1La99rrU7i_U81/view?usp=drive_link',
@@ -20,6 +20,15 @@ const header = {
   const projects = [
     // projects can be added an removed
     // if there are no projects, Projects section won't show up
+       {
+"name": "Personal Blog",
+"description": "A personal blog showcasing my journey through solving LeetCode problems, sharing experiences, and documenting the learning process.",
+"stack": ["React", "Gatsby", "GraphQL", "MDX"],
+"sourceCode": "https://github.com/mashhoorahdal/blog-gatsby",
+"livePreview": "https://mashhoorblog.vercel.app/"
+}
+
+
     {
       name: 'Edulinx',
       description:
@@ -45,14 +54,7 @@ const header = {
       sourceCode: 'https://github.com/mashhoorahdal/mashhoor.github.io',
       livePreview: 'https://mashhoorahdal.github.io/portfolio',
     },
-    {
-        name: 'Django-Todo',
-        description:
-          'Todo App to facilitate the CRUD operations in Django  ',
-        stack: ['Django', 'Python', 'Sqlite'],
-        sourceCode: 'https://github.com/mashhoorahdal/django-todo',
-        
-      },
+   
   ]
   
   const skills = [
