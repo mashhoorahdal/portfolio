@@ -27,8 +27,7 @@ const header = {
 "sourceCode": "https://github.com/mashhoorahdal/blog-gatsby",
 "livePreview": "https://mashhoorblog.vercel.app/"
 }
-
-
+,
     {
       name: 'Edulinx',
       description:
