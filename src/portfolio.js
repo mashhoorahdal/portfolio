@@ -10,7 +10,7 @@ const header = {
     role: 'Front End Developer | Python ',
     description:
       'Highly motivated and dedicated B.Tech Computer Science student with a strong academic background and a passion for software development. Seeking a challenging position to leverage my technical skills and contribute to the success of a progressive organization.',
-    resume: 'https://drive.google.com/file/d/1I7-s605RzLRFzyVOkf1La99rrU7i_U81/view?usp=drive_link',
+    resume: 'https://drive.google.com/file/d/1DiQlxLRktEMZYB7fML3GjZEJDEJUZvzH/view?usp=drive_link',
     social: {
       linkedin: 'https://linkedin.com/in/mashhoor-ahdal',
       github: 'https://github.com/mashhoorahdal',
