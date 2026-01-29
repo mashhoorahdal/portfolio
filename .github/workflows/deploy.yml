@@ -23,7 +23,14 @@ jobs:
           node-version: '18'
           cache: 'npm'
 
-      # Simplified: 'npm ci' is faster and cleaner for CI environments
+      - name: Clear npm cache
+        run: npm cache clean --force
+
+      - name: Remove package-lock.json and node_modules
+        run: |
+          rm -f package-lock.json
+          rm -rf node_modules
+
       - name: Install dependencies
         run: npm install
 
