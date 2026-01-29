@@ -23,7 +23,7 @@ const App = () => {
         <Skills />
         <Contact />
       </main>
-      {/* <CustomCursor /> */}
+      <CustomCursor />
       <ScrollToTop />
       <Footer />
     </div>

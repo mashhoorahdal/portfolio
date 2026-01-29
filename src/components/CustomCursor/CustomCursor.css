@@ -2,14 +2,39 @@
 
 .custom-cursor {
     position: fixed;
+    width: 24px;
+    height: 24px;
+    border: 2px solid #ffffff;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(4px);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    transition: all 0.05s ease-out;
+    z-index: 9999;
+}
+
+.custom-cursor:hover {
+    width: 32px;
+    height: 32px;
+    border-color: #007bff;
+    background-color: rgba(0, 123, 255, 0.2);
+    box-shadow: 0 0 20px rgba(0, 123, 255, 0.6);
+}
+
+.custom-cursor:active {
     width: 20px;
     height: 20px;
-    border: 2px solid #d1d0d0;
-    border-radius: 50%;
-    background-color: transparent;
-    mix-blend-mode: difference; /* This is optional and can be adjusted based on your design */
-    pointer-events: none; /* Ensure the cursor doesn't interfere with click events */
-    transform: translate(-50%, -50%);
-    transition: transform 0.2s ease;
-  }
+    border-color: #0056b3;
+    background-color: rgba(0, 86, 179, 0.3);
+    box-shadow: 0 0 15px rgba(0, 86, 179, 0.8);
+}
+
+/* Make cursor smaller and more subtle on mobile */
+@media (max-width: 768px) {
+    .custom-cursor {
+        display: none;
+    }
+}
   
