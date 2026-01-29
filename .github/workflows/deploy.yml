@@ -14,20 +14,31 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '18'
-          
           cache: 'npm'
 
+      - name: Clear npm cache
+        run: npm cache clean --force
+
+      - name: Remove package-lock.json and node_modules
+        run: |
+          rm -f package-lock.json
+          rm -rf node_modules
+
       - name: Install dependencies
-        # Adding --include=optional ensures rollup-linux-x64-gnu is installed
-        run: npm install --include=optional
+        run: npm install
 
       - name: Build project
         run: npm run build
+
+      - name: Check build directory
+        run: ls -la dist/
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
