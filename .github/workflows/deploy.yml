@@ -5,17 +5,16 @@ on:
     branches: [ main ]
 
 permissions:
-  contents: write
+  contents: read
+  pages: write
+  id-token: write
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -23,27 +22,22 @@ jobs:
           node-version: '18'
           cache: 'npm'
 
-      - name: Clear npm cache
-        run: npm cache clean --force
-
-      - name: Remove package-lock.json and node_modules
-        run: |
-          rm -f package-lock.json
-          rm -rf node_modules
-
       - name: Install dependencies
-        run: npm install
+        run: |
+          npm install
+          npm install @rollup/rollup-linux-x64-gnu
 
       - name: Build project
         run: npm run build
 
-      - name: Check build directory
-        run: ls -la dist/
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: './dist'
 
       - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
-          force_orphan: true
-          publish_branch: gh-pages
+        id: deployment
+        uses: actions/deploy-pages@v4
