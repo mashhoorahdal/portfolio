@@ -16,6 +16,15 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '18'  # Use your preferred Node.js version
+          cache: 'npm'
+
+      - name: Clear npm cache
+        run: npm cache clean --force
+
+      - name: Remove package-lock.json and node_modules
+        run: |
+          rm -f package-lock.json
+          rm -rf node_modules
 
       - name: Install dependencies
         run: npm ci
