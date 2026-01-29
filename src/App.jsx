@@ -9,6 +9,7 @@ import Contact from "./components/Contact/Contact";
 import Footer from "./components/Footer/Footer";
 import "./App.css";
 import CustomCursor from "./components/CustomCursor/CustomCursor";
+import Timeline from './components/Timeline/Timeline';
 
 const App = () => {
   const [{ themeName }] = useContext(ThemeContext);
@@ -19,6 +20,7 @@ const App = () => {
 
       <main>
         <About />
+        <Timeline />
         <Projects />
         <Skills />
         <Contact />

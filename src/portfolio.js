@@ -78,4 +78,21 @@ const contact = {
   email: "mashhoorahdal2@gmail.com",
 };
 
-export { header, about, projects, skills, contact };
+const experiences = [
+  {
+    title: "Full Stack Developer",
+    company: "Turbolab Technologies Pvt Ltd",
+    location: "Kochi, Kerala",
+    date: "2024 - Present",
+    description: "Building scalable SaaS platform using Django and React. Implemented microservices architectures and real-time data processing pipelines. Developed AI-driven features and chatbots to enhance user experience.",
+  },
+  {
+    title: "Bachelor of Science",
+    company: "Government Engineering College, Sreekrishnapuram, Palakkad",
+    location: "Palakkad, Kerala",
+    date: "2020 - 2024",
+    description: "Specialized in Computer Science and Engineering.",
+  },
+];
+
+export { header, about, projects, skills, contact, experiences };
