@@ -10,6 +10,7 @@ import Footer from "./components/Footer/Footer";
 import "./App.css";
 import CustomCursor from "./components/CustomCursor/CustomCursor";
 import Timeline from './components/Timeline/Timeline';
+import SkillGraph from "./components/SkillGraph/SkillGraph";
 
 const App = () => {
   const [{ themeName }] = useContext(ThemeContext);
@@ -23,6 +24,7 @@ const App = () => {
         <Timeline />
         <Projects />
         <Skills />
+        <SkillGraph />
         <Contact />
       </main>
       <CustomCursor />

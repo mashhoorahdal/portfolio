@@ -1,0 +1,13 @@
+.skill-graph__container {
+  width: 100%;
+  background-color: var(--clr-bg-alt);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  margin-top: 2rem;
+  overflow: hidden;
+  border: 1px solid rgba(var(--clr-primary), 0.1);
+}
+
+.skill-graph .section__title {
+  margin-bottom: 0.5em;
+}

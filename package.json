@@ -19,6 +19,7 @@
     "@mui/material": "^5.15.10",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-force-graph-2d": "^1.29.0",
     "react-router-dom": "^6.8.0",
     "uniqid": "^5.4.0"
   },

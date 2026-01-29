@@ -56,21 +56,40 @@ const projects = [
 ];
 
 const skills = [
-  // skills can be added or removed
-  // if there are no skills, Skills section won't show up
-  "Django",
-  "JavaScript",
-  "Python",
-  "React",
-  "Sql",
-  "Git",
-  "CI/CD",
-  "Redis",
-  "Celery",
-  "RabbitMQ",
-  "Docker",
-  "Kafka",
-  "Grafana",
+  "Django", "Python", "React", "Redis", "Docker", 
+  "Kafka", "Grafana", "FastAPI", "Git", "CI/CD",
+  "RAG (AI)", "Nomad", "Prometheus", "Celery"
+];
+
+const skillConnections = [
+
+  // Frontend & Backend
+  ['React', 'Django'],      // Frontend communicating with backend
+  ['React', 'FastAPI'],     // Frontend communicating with FastAPI services
+  
+  // Backend & Caching
+  ['Django', 'Redis'],      // Caching with Redis
+  ['FastAPI', 'Redis'],     // FastAPI using Redis for caching
+  
+  // Event-Driven Logic
+  ['Kafka', 'Django'],       // Events flowing to backend
+  ['Kafka', 'Prometheus'],   // Monitoring Kafka lags
+  
+  // AI & Backend
+  ['RAG (AI)', 'FastAPI'],   // Chatbot powered by FastAPI
+  ['RAG (AI)', 'Python'],    
+  
+  // Deployment & Orchestration
+  ['Docker', 'Nomad'],       // Nomad deploying Docker containers
+  ['Nomad', 'Prometheus'],   // Prometheus scraping Nomad logs/metrics
+  ['Prometheus', 'Grafana'], // Visualizing alerts and lags
+  
+  // Infrastructure glue
+  ['CI/CD', 'Nomad'],        // Pipeline deploying to Nomad
+  ['Git', 'CI/CD'],
+  ['Python', 'Django'],
+  ['Django', 'Redis'],
+  ['Redis', 'Celery']
 ];
 
 const contact = {
@@ -95,4 +114,4 @@ const experiences = [
   },
 ];
 
-export { header, about, projects, skills, contact, experiences };
+export { header, about, projects, skills, contact, experiences, skillConnections };
