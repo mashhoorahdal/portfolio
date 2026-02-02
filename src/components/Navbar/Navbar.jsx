@@ -56,7 +56,7 @@ const Navbar = () => {
           </li>
         ) : null}
 
-        {skillConnections && skillConnections.length ? (
+        {/* {skillConnections && skillConnections.length ? (
           <li className='nav__list-item'>
             <a
               href='#architecture'
@@ -66,7 +66,7 @@ const Navbar = () => {
               Architecture
             </a>
           </li>
-        ) : null}
+        ) : null} */}
 
         {contact.email ? (
           <li className='nav__list-item'>
