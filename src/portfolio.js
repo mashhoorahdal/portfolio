@@ -56,9 +56,28 @@ const projects = [
 ];
 
 const skills = [
-  "Django", "Python", "React", "Redis", "Docker", 
+  "Django", "Python", "React", "Redis", "Docker",
   "Kafka", "Grafana", "FastAPI", "Git", "CI/CD",
   "RAG (AI)", "Nomad", "Prometheus", "Celery"
+];
+
+const skillCategories = [
+  {
+    name: "Backend",
+    items: ["Python", "Django", "FastAPI", "Celery", "Kafka", "Redis"],
+  },
+  {
+    name: "Frontend",
+    items: ["React", "JavaScript", "TypeScript", "Tailwind CSS"],
+  },
+  {
+    name: "AI / ML",
+    items: ["RAG (AI)", "LangChain", "OpenAI", "HuggingFace", "Vector DBs"],
+  },
+  {
+    name: "DevOps & Infra",
+    items: ["Docker", "Nomad", "Prometheus", "Grafana", "CI/CD", "Git"],
+  },
 ];
 
 const skillConnections = [
@@ -94,7 +113,7 @@ const skillConnections = [
 
 const contact = {
   // email is optional - if left empty Contact section won't show up
-  email: "mashhoorahdal2@gmail.com",
+  email: "mashhoor.ahdal.work@gmail.com",
 };
 
 const experiences = [
@@ -114,4 +133,4 @@ const experiences = [
   },
 ];
 
-export { header, about, projects, skills, contact, experiences, skillConnections };
+export { header, about, projects, skills, skillCategories, contact, experiences, skillConnections };
