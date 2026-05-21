@@ -1,17 +1,15 @@
 import { useEffect } from 'react';
+import { Outlet, useLocation } from 'react-router-dom';
 import Lenis from 'lenis';
 import Navbar from './components/Navbar/Navbar';
-import Hero from './components/Hero/Hero';
-import Timeline from './components/Timeline/Timeline';
-import Projects from './components/Projects/Projects';
-import Skills from './components/Skills/Skills';
-import Contact from './components/Contact/Contact';
 import Footer from './components/Footer/Footer';
 import ScrollToTop from './components/ScrollToTop/ScrollToTop';
 import CustomCursor from './components/CustomCursor/CustomCursor';
 import BackgroundFX from './components/BackgroundFX/BackgroundFX';
 
 const App = () => {
+  const location = useLocation();
+
   useEffect(() => {
     const lenis = new Lenis({
       duration: 1.1,
@@ -49,16 +47,17 @@ const App = () => {
     };
   }, []);
 
+  useEffect(() => {
+    if (location.hash) return;
+    window.scrollTo({ top: 0, behavior: 'instant' });
+  }, [location.pathname, location.hash]);
+
   return (
     <div id="top" className="relative min-h-screen overflow-x-hidden">
       <BackgroundFX />
       <Navbar />
       <main className="relative z-10">
-        <Hero />
-        <Timeline />
-        <Projects />
-        <Skills />
-        <Contact />
+        <Outlet />
       </main>
       <Footer />
       <ScrollToTop />
