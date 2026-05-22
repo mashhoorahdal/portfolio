@@ -1,0 +1,24 @@
+# Changelog
+
+## [1.1.0](https://github.com/mashhoorahdal/portfolio/compare/portfolio-v1.0.0...portfolio-v1.1.0) (2026-05-22)
+
+
+### Features
+
+* add GlitchType and ParticleVortex experiments with interactive controls ([df0728b](https://github.com/mashhoorahdal/portfolio/commit/df0728b417bd2b5fd6c762d58330153a69bd257b))
+* add README.md with project overview, tech stack, features, and setup instructions ([569a1a6](https://github.com/mashhoorahdal/portfolio/commit/569a1a603206ac745ea0be22972c1d39f9fbaac7))
+* add timeline component for experience section ([9093468](https://github.com/mashhoorahdal/portfolio/commit/909346800877f83614992be37ace78a96e8747c5))
+* add working contact form with spam guards and release automation ([fc27d68](https://github.com/mashhoorahdal/portfolio/commit/fc27d68f3f6f1daacf766c4b99529b7158a8086e))
+* enhance experience section with detailed project summaries and bullet points ([ca85ad5](https://github.com/mashhoorahdal/portfolio/commit/ca85ad5526c2df48c0f65215a763e4e8c9e615d4))
+* modernize portfolio with Tailwind, Framer Motion, Lenis ([0358ca6](https://github.com/mashhoorahdal/portfolio/commit/0358ca65fd5d8a3ef24d8108a7f7b40a02b483c4))
+
+
+### Refactors
+
+* simplify custom cursor implementation and improve hover effects ([38cd555](https://github.com/mashhoorahdal/portfolio/commit/38cd555d955c0cb85ae508eed3bdd62cc2e99f9f))
+* update dependencies to MUI and enhance portfolio details ([1f1e253](https://github.com/mashhoorahdal/portfolio/commit/1f1e253ce45621eeb1b46034b51fd4ff2751d847))
+
+
+### CI
+
+* bump GitHub Actions past Node 20 deprecation ([4b4d8de](https://github.com/mashhoorahdal/portfolio/commit/4b4d8de0f286f26377f6e6027f16e24d050fe3a7))
