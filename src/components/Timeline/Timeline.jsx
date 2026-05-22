@@ -6,6 +6,32 @@ import { experiences } from '../../portfolio';
 const isEducation = (title) =>
   /bachelor|master|phd|engineering|school|college|university|b\.?\s*sc/i.test(title);
 
+const BulletList = ({ items }) => (
+  <ul className="mt-3 space-y-1.5">
+    {items.map((b, i) => (
+      <li
+        key={i}
+        className="text-sm text-fg-muted leading-relaxed pl-4 relative before:content-['▹'] before:absolute before:left-0 before:text-accent/70"
+      >
+        {b}
+      </li>
+    ))}
+  </ul>
+);
+
+const TechPills = ({ items }) => (
+  <div className="mt-3 flex flex-wrap gap-1.5">
+    {items.map((t) => (
+      <span
+        key={t}
+        className="text-[10px] md:text-xs font-mono px-2 py-0.5 rounded-full border border-accent/20 bg-accent/5 text-accent/90"
+      >
+        {t}
+      </span>
+    ))}
+  </div>
+);
+
 const TimelineNode = ({ exp, index }) => {
   const Icon = isEducation(exp.title) ? GraduationCap : Briefcase;
   return (
@@ -34,7 +60,34 @@ const TimelineNode = ({ exp, index }) => {
         </div>
         <h3 className="font-display text-lg md:text-xl font-semibold">{exp.title}</h3>
         <p className="text-sm text-accent/80 mt-0.5">{exp.company}</p>
-        <p className="text-sm text-fg-muted mt-3 leading-relaxed">{exp.description}</p>
+
+        {exp.summary && (
+          <p className="text-sm text-fg-muted mt-3 leading-relaxed">{exp.summary}</p>
+        )}
+
+        {exp.description && !exp.summary && (
+          <p className="text-sm text-fg-muted mt-3 leading-relaxed">{exp.description}</p>
+        )}
+
+        {exp.bullets?.length > 0 && <BulletList items={exp.bullets} />}
+        {exp.tech?.length > 0 && <TechPills items={exp.tech} />}
+
+        {exp.projects?.length > 0 && (
+          <div className="mt-5 space-y-4 border-l border-border pl-4">
+            {exp.projects.map((p) => (
+              <div key={p.name}>
+                <h4 className="font-display text-sm md:text-base font-semibold text-fg">
+                  {p.name}
+                </h4>
+                {p.summary && (
+                  <p className="text-sm text-fg-muted mt-1 leading-relaxed">{p.summary}</p>
+                )}
+                {p.bullets?.length > 0 && <BulletList items={p.bullets} />}
+                {p.tech?.length > 0 && <TechPills items={p.tech} />}
+              </div>
+            ))}
+          </div>
+        )}
       </div>
     </motion.div>
   );

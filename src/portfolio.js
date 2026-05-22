@@ -122,7 +122,68 @@ const experiences = [
     company: "Turbolab Technologies Pvt Ltd",
     location: "Kochi, Kerala",
     date: "2024 - Present",
-    description: "Building scalable SaaS platform using Django and React. Implemented microservices architectures and real-time data processing pipelines. Developed AI-driven features and chatbots to enhance user experience.",
+    summary:
+      "Shipped production systems across three domains: an AI-powered app-review SaaS, an event-driven DAG orchestrator, and the company's core data platform.",
+    projects: [
+      {
+        name: "App Review Intelligence Platform",
+        summary:
+          "End-to-end SaaS analyzing App Store / Play Store reviews with LLM pipelines and a full analytics dashboard.",
+        bullets: [
+          "Shipped an AI-powered review analytics product end-to-end, turning raw store reviews into themes, sentiment, and competitive signals.",
+          "Owned the paid-customer surface — auth and the full subscription lifecycle — unblocking onboarding.",
+        ],
+        tech: [
+          "Django",
+          "DRF",
+          "Celery",
+          "Redis",
+          "PostgreSQL",
+          "OpenAI",
+          "React 19",
+          "Vite",
+          "MUI",
+          "TanStack Query",
+          "Recharts",
+        ],
+      },
+      {
+        name: "Nest — Core Data Platform",
+        summary:
+          "Contributed across the company's flagship data platform — reliability, billing performance, and developer-facing data modeling improvements.",
+        bullets: [
+          "Cut duplicate alerts by ~82% (592 → 107 over a 12-week window) with deterministic dedup, dropping the platform duplicate rate from 1.22% to 0.19% even as overall alert volume grew.",
+          "Migrated a custom Nomad-deployed alert service to native Grafana alerts — replaced custom code with standard tooling and shrank the surface to maintain.",
+        ],
+        tech: [
+          "Django",
+          "DRF",
+          "GraphQL",
+          "Celery",
+          "MySQL",
+          "Nomad",
+          "Sentry",
+        ],
+      },
+      {
+        name: "Nest DAG Orchestrator",
+        summary:
+          "Event-driven DAG execution engine powering the data platform — manages DAG runs, nodes, datasets, and lifecycle state via Kafka events.",
+        bullets: [
+          "Removed a redundant polling background task from the DAG execution flow — moved fully to event-driven updates (API + Kafka), decommissioning a dedicated Nomad job and a Redis instance while making runs noticeably smoother.",
+          "Eliminated recurring stuck-state incidents that previously blocked downstream data consumers.",
+        ],
+        tech: [
+          "Django",
+          "DRF",
+          "Confluent Kafka",
+          "Redis",
+          "PostgreSQL",
+          "Elasticsearch",
+          "Sentry",
+        ],
+      },
+    ],
   },
   {
     title: "Bachelor of Science",
