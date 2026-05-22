@@ -16,6 +16,7 @@ Live: https://mashhoorahdal.github.io/portfolio
 ## Features
 
 - Animated hero, projects, skills, timeline, contact sections
+- Working contact form (FormSubmit AJAX) with floating-label inputs, success animation, and client-side spam guards (honeypot, min-fill timer, per-hour cap, duplicate hash, URL limit, keyword blacklist)
 - Custom cursor + background FX
 - Smooth scroll via Lenis with anchor-link hijack
 - `/lab` route with interactive experiments:
@@ -64,6 +65,15 @@ git clone https://github.com/mashhoorahdal/portfolio.git
 cd portfolio
 npm install
 ```
+
+### Environment
+Copy `.env.example` to `.env.local` and set:
+
+```
+VITE_FORMSUBMIT_KEY=<your-formsubmit-hash>
+```
+
+Get the hash by submitting once to `https://formsubmit.co/<your-email>` and confirming via the activation email. Without this var, the contact form falls back to a mailto link. In CI, set `VITE_FORMSUBMIT_KEY` as a GitHub Actions secret — the deploy workflow injects it at build time.
 
 ### Develop
 ```bash
@@ -123,6 +133,15 @@ Runs `predeploy` (build) then publishes `dist/` to the `gh-pages` branch. CI use
 | `npm run preview` | Serve `dist/` locally |
 | `npm run lint` | ESLint check |
 | `npm run deploy` | Build + publish to GitHub Pages |
+
+## Releases
+
+Versioning is automated via [release-please](https://github.com/googleapis/release-please). Use [Conventional Commits](https://www.conventionalcommits.org/) (`feat:`, `fix:`, `feat!:` for breaking, etc.). On push to `main`, the workflow opens / updates a Release PR that bumps `package.json`, writes `CHANGELOG.md`, and — once merged — tags the commit (e.g. `v1.2.0`) and publishes a GitHub Release.
+
+Commit type → bump:
+- `fix:` → patch (`1.0.0` → `1.0.1`)
+- `feat:` → minor (`1.0.0` → `1.1.0`)
+- `feat!:` or `BREAKING CHANGE:` footer → major (`1.0.0` → `2.0.0`)
 
 ## License
 

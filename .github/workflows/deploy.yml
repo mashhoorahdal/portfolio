@@ -28,6 +28,8 @@ jobs:
           npm install @rollup/rollup-linux-x64-gnu
 
       - name: Build project
+        env:
+          VITE_FORMSUBMIT_KEY: ${{ secrets.VITE_FORMSUBMIT_KEY }}
         run: npm run build
 
       - name: Setup Pages
