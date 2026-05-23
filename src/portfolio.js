@@ -22,28 +22,11 @@ const projects = [
   // projects can be added an removed
   // if there are no projects, Projects section won't show up
   {
-    name: "Personal Blog",
+    name: "CapCut TG Bot",
     description:
-      "A personal blog showcasing my journey through solving LeetCode problems, sharing experiences, and documenting the learning process.",
-    stack: ["React", "Gatsby", "GraphQL", "MDX"],
-    sourceCode: "https://github.com/mashhoorahdal/blog-gatsby",
-    livePreview: "https://mashhoorblog.vercel.app/",
-  },
-  {
-    name: "Edulinx",
-    description:
-      " Web application leveraging Firebase to facilitate the organized retrieval and downloading of PDF study materials",
-    stack: ["Javascript", "Firebase"],
-    sourceCode: "https://github.com/mashhoorahdal/Edulinx",
-    livePreview: "https://edulinx.vercel.app",
-  },
-  {
-    name: "PromptImage",
-    description:
-      " Web-based application utilizing Flask and integrated APIs to empower users to create, customize, and download images easily.",
-
-    stack: ["Flask", "HuggingFace", "Python"],
-    sourceCode: "https://github.com/mashhoorahdal/image_generator",
+      "Telegram bot for a CapCut VPN group — handles VPN links, latest CapCut version downloads, and keyword-triggered smart greetings. Deployed serverlessly on Vercel via webhook.",
+    stack: ["Python", "python-telegram-bot", "Vercel"],
+    sourceCode: "https://github.com/mashhoorahdal/capcut-tg-bot",
     livePreview: "",
   },
   {
