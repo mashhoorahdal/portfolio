@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.0](https://github.com/mashhoorahdal/portfolio/compare/portfolio-v1.1.0...portfolio-v1.2.0) (2026-05-23)
+
+
+### Features
+
+* update projects section to include CapCut TG Bot and remove outdated entries ([98f0314](https://github.com/mashhoorahdal/portfolio/commit/98f03143ef595f1866833ff771dbe30be9934120))
+
 ## [1.1.0](https://github.com/mashhoorahdal/portfolio/compare/portfolio-v1.0.0...portfolio-v1.1.0) (2026-05-22)
 
 
