@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.0](https://github.com/mashhoorahdal/portfolio/compare/portfolio-v1.2.0...portfolio-v1.3.0) (2026-05-29)
+
+
+### Features
+
+* add PyPI Warehouse open-source contribution to projects ([c0e7c9a](https://github.com/mashhoorahdal/portfolio/commit/c0e7c9a0d02cc1ae4cd60b7f00acfe423f5fd18d))
+
 ## [1.2.0](https://github.com/mashhoorahdal/portfolio/compare/portfolio-v1.1.0...portfolio-v1.2.0) (2026-05-23)
 
 
