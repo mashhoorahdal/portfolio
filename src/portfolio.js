@@ -22,6 +22,14 @@ const projects = [
   // projects can be added an removed
   // if there are no projects, Projects section won't show up
   {
+    name: "PyPI Warehouse (Open Source)",
+    description:
+      "Two merged PRs to PyPI Warehouse — the backend powering pypi.org. Improved collaborator notification emails (dynamic project/user links + a reusable FAQ helper) and fixed WCAG heading accessibility in project detail pages, keeping the i18n template pipeline intact.",
+    stack: ["Python", "Jinja2", "i18n", "Accessibility"],
+    sourceCode: "https://github.com/pypi/warehouse",
+    livePreview: "https://pypi.org",
+  },
+  {
     name: "CapCut TG Bot",
     description:
       "Telegram bot for a CapCut VPN group — handles VPN links, latest CapCut version downloads, and keyword-triggered smart greetings. Deployed serverlessly on Vercel via webhook.",
