@@ -11,7 +11,7 @@ const about = {
   description:
     "I’m a Full Stack Developer & AI Engineer with 2+ years of experience building scalable SaaS platforms, AI-driven systems, and high-performance backends. I specialize in Django, FastAPI, microservices, and distributed architectures.Build optimized, production-ready UIs. I’ve built real-time pipelines, implemented AI chatbots, and delivered end-to-end monitoring stacks for distributed systems with strong focus on performance, reliability, and automation.",
   resume:
-    "https://drive.google.com/file/d/1DiQlxLRktEMZYB7fML3GjZEJDEJUZvzH/view?usp=drive_link",
+    "https://drive.google.com/file/d/13xRcyBIkUM-803j9WR2QlhnJZVE_OuBg/view?usp=drive_link",
   social: {
     linkedin: "https://linkedin.com/in/mashhoor-ahdal",
     github: "https://github.com/mashhoorahdal",
