@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.3.1](https://github.com/mashhoorahdal/portfolio/compare/portfolio-v1.3.0...portfolio-v1.3.1) (2026-06-06)
+
+
+### Bug Fixes
+
+* **deps:** bump react-router-dom to 6.30.4 to patch open redirect ([971112f](https://github.com/mashhoorahdal/portfolio/commit/971112f15ca0ac15cc87dc6120db27360c35be1a))
+* tighten contact form spacing on mobile and smooth custom cursor ([9299cb6](https://github.com/mashhoorahdal/portfolio/commit/9299cb6498f332f28865318b437d012add583f81))
+
 ## [1.3.0](https://github.com/mashhoorahdal/portfolio/compare/portfolio-v1.2.0...portfolio-v1.3.0) (2026-05-29)
 
 
