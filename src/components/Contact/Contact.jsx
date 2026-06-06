@@ -238,7 +238,7 @@ const Contact = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-80px' }}
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-          className="relative card overflow-hidden p-8 md:p-14"
+          className="relative card overflow-hidden p-6 sm:p-8 md:p-14"
         >
           <div className="absolute inset-0 bg-gradient-radial from-accent/15 via-transparent to-transparent" />
           <div className="absolute -top-20 left-1/2 -translate-x-1/2 h-60 w-60 rounded-full bg-accent/30 blur-[100px]" />
@@ -258,7 +258,7 @@ const Contact = () => {
 
               <a
                 href={`mailto:${contact.email}`}
-                className="mt-8 inline-flex items-center gap-2 text-sm font-mono text-fg-muted hover:text-accent transition-colors group"
+                className="mt-8 inline-flex flex-wrap items-center gap-2 text-sm font-mono text-fg-muted hover:text-accent transition-colors group break-all max-w-full md:justify-start justify-center"
               >
                 <Mail className="h-4 w-4" />
                 {contact.email}
@@ -292,7 +292,7 @@ const Contact = () => {
             </div>
 
             {hasFormBackend ? (
-              <div className="relative min-h-[480px]">
+              <div className="relative min-h-[360px]">
                 <AnimatePresence mode="wait" initial={false}>
                   {isSuccess ? (
                     <SuccessPanel

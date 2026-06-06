@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 
 const isInteractive = (el) => {
-  if (!el) return false;
+  if (!el || typeof el.closest !== 'function') return false;
   return !!(
     el.closest('a') ||
     el.closest('button') ||
@@ -18,7 +18,9 @@ const CustomCursor = () => {
   const target = useRef({ x: -100, y: -100 });
   const ring = useRef({ x: -100, y: -100 });
   const hoverRef = useRef(false);
+  const lastElRef = useRef(null);
   const rafRef = useRef(0);
+  const runningRef = useRef(false);
   const [coarse, setCoarse] = useState(true);
 
   useEffect(() => {
@@ -44,37 +46,61 @@ const CustomCursor = () => {
       r.style.opacity = v ? '0.5' : '0';
     };
 
+    const start = () => {
+      if (runningRef.current) return;
+      runningRef.current = true;
+      rafRef.current = requestAnimationFrame(tick);
+    };
+
     const onMove = (e) => {
       target.current.x = e.clientX;
       target.current.y = e.clientY;
+      lastElRef.current = e.target;
       if (!visible) show(true);
-      hoverRef.current = isInteractive(e.target);
+      start();
     };
 
     const onLeave = () => show(false);
     const onEnter = () => show(true);
 
     const onDown = () => {
-      dot.style.setProperty('--s', '0.7');
+      dot.dataset.down = '1';
+      start();
     };
     const onUp = () => {
-      dot.style.setProperty('--s', '1');
+      delete dot.dataset.down;
+      start();
     };
 
     const tick = () => {
-      // Dot snaps instantly (set via translate)
-      dot.style.transform = `translate3d(${target.current.x}px, ${target.current.y}px, 0) translate(-50%, -50%) scale(var(--s,1))`;
+      // Dot tracks the pointer 1:1; ring eases toward it.
+      const tx = target.current.x;
+      const ty = target.current.y;
 
-      // Ring eases toward target
-      const ease = 0.18;
-      ring.current.x += (target.current.x - ring.current.x) * ease;
-      ring.current.y += (target.current.y - ring.current.y) * ease;
+      // Hover state resolved once per frame (not per mousemove) to avoid
+      // redundant DOM walks when move events fire faster than paint.
+      hoverRef.current = isInteractive(lastElRef.current);
+
+      const pressed = dot.dataset.down === '1';
+      const dotScale = pressed ? 0.7 : hoverRef.current ? 2.2 : 1;
+      dot.style.transform = `translate3d(${tx}px, ${ty}px, 0) translate(-50%, -50%) scale(${dotScale})`;
+
+      const dx = tx - ring.current.x;
+      const dy = ty - ring.current.y;
+      ring.current.x += dx * 0.2;
+      ring.current.y += dy * 0.2;
 
       const scale = hoverRef.current ? 1.8 : 1;
       r.style.transform = `translate3d(${ring.current.x}px, ${ring.current.y}px, 0) translate(-50%, -50%) scale(${scale})`;
 
-      const dotScale = hoverRef.current ? 2.2 : 1;
-      dot.style.setProperty('--s', dotScale.toString());
+      // Pause the loop once the ring has caught up — no point repainting a
+      // mix-blend-difference layer every frame while the pointer is idle.
+      if (Math.abs(dx) < 0.1 && Math.abs(dy) < 0.1) {
+        ring.current.x = tx;
+        ring.current.y = ty;
+        runningRef.current = false;
+        return;
+      }
 
       rafRef.current = requestAnimationFrame(tick);
     };
@@ -84,9 +110,10 @@ const CustomCursor = () => {
     window.addEventListener('mouseup', onUp);
     document.documentElement.addEventListener('mouseleave', onLeave);
     document.documentElement.addEventListener('mouseenter', onEnter);
-    rafRef.current = requestAnimationFrame(tick);
+    start();
 
     return () => {
+      runningRef.current = false;
       cancelAnimationFrame(rafRef.current);
       window.removeEventListener('mousemove', onMove);
       window.removeEventListener('mousedown', onDown);
