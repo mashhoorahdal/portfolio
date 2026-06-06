@@ -13,6 +13,21 @@
     <title>Mashhoor Ahdal — Full Stack & AI Engineer</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Single Page Apps for GitHub Pages: restore the real path that
+         404.html encoded into the query string, before React mounts.
+         https://github.com/rafgraph/spa-github-pages -->
+    <script type="text/javascript">
+      (function (l) {
+        if (l.search[1] === '/') {
+          var decoded = l.search.slice(1).split('&').map(function (s) {
+            return s.replace(/~and~/g, '&');
+          }).join('?');
+          window.history.replaceState(null, null,
+            l.pathname.slice(0, -1) + decoded + l.hash
+          );
+        }
+      })(window.location);
+    </script>
   </head>
   <body class="bg-bg text-fg">
     <div id="root"></div>
