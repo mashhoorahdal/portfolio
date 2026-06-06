@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.4.0](https://github.com/mashhoorahdal/portfolio/compare/portfolio-v1.3.1...portfolio-v1.4.0) (2026-06-06)
+
+
+### Features
+
+* replace capcut bot and portfolio projects with kkma events ([c0983d6](https://github.com/mashhoorahdal/portfolio/commit/c0983d69c0d36ba8682ee71980e20e5ea189e6bf))
+
 ## [1.3.1](https://github.com/mashhoorahdal/portfolio/compare/portfolio-v1.3.0...portfolio-v1.3.1) (2026-06-06)
 
 
