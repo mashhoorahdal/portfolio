@@ -30,19 +30,12 @@ const projects = [
     livePreview: "https://pypi.org",
   },
   {
-    name: "CapCut TG Bot",
+    name: "KKMA Events",
     description:
-      "Telegram bot for a CapCut VPN group — handles VPN links, latest CapCut version downloads, and keyword-triggered smart greetings. Deployed serverlessly on Vercel via webhook.",
-    stack: ["Python", "python-telegram-bot", "Vercel"],
-    sourceCode: "https://github.com/mashhoorahdal/capcut-tg-bot",
+      "Mobile app for tracking event attendance in a membership organization. Members identify via membership-card QR (or number) to browse and register for events; admins manage the registry, events, and participant lists with CSV export. Privacy by design — member reads/writes go through Postgres security-definer RPCs that expose only safe fields.",
+    stack: ["Expo", "React Native", "Supabase", "TypeScript"],
+    sourceCode: "https://github.com/mashhoorahdal/kkma_events_tracker",
     livePreview: "",
-  },
-  {
-    name: "Portfolio",
-    description: "Minimal developer portfolio built using react ",
-    stack: ["React", "Git", "CSS"],
-    sourceCode: "https://github.com/mashhoorahdal/mashhoor.github.io",
-    livePreview: "https://mashhoorahdal.github.io/portfolio",
   },
 ];
 
