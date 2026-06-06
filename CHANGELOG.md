@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.4.1](https://github.com/mashhoorahdal/portfolio/compare/portfolio-v1.4.0...portfolio-v1.4.1) (2026-06-06)
+
+
+### Bug Fixes
+
+* add SPA 404 fallback for GitHub Pages and SEO files ([2fa9b90](https://github.com/mashhoorahdal/portfolio/commit/2fa9b90ecd5028705df583470cf90e9de8ba2271))
+
 ## [1.4.0](https://github.com/mashhoorahdal/portfolio/compare/portfolio-v1.3.1...portfolio-v1.4.0) (2026-06-06)
 
 
