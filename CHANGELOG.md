@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.5.0](https://github.com/mashhoorahdal/portfolio/compare/portfolio-v1.4.1...portfolio-v1.5.0) (2026-06-07)
+
+
+### Features
+
+* add Google Analytics 4 tracking ([d06c32a](https://github.com/mashhoorahdal/portfolio/commit/d06c32a106f6d92f15efa746ff0716111660e653))
+
 ## [1.4.1](https://github.com/mashhoorahdal/portfolio/compare/portfolio-v1.4.0...portfolio-v1.4.1) (2026-06-06)
 
 
