@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.6.0](https://github.com/mashhoorahdal/portfolio/compare/portfolio-v1.5.0...portfolio-v1.6.0) (2026-06-07)
+
+
+### Features
+
+* auto-track all link and button clicks in GA4 ([f4ce596](https://github.com/mashhoorahdal/portfolio/commit/f4ce5960230113eeb9cd412ab6913bc8760b4ea5))
+
 ## [1.5.0](https://github.com/mashhoorahdal/portfolio/compare/portfolio-v1.4.1...portfolio-v1.5.0) (2026-06-07)
 
 
