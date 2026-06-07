@@ -62,6 +62,34 @@ const App = () => {
     });
   }, [location.pathname, location.search]);
 
+  // Auto-track clicks on any link or button — one delegated listener,
+  // no per-element tagging. Sends a GA4 "click" event with a readable label.
+  useEffect(() => {
+    const onClick = (e) => {
+      if (!window.gtag) return;
+      const el = e.target.closest('a, button, [role="button"]');
+      if (!el) return;
+
+      const href = el.getAttribute('href') || undefined;
+      const label =
+        el.getAttribute('aria-label') ||
+        el.textContent?.trim().slice(0, 100) ||
+        href ||
+        el.id ||
+        'unknown';
+
+      window.gtag('event', 'click', {
+        element: el.tagName.toLowerCase(),
+        link_text: label,
+        link_url: href,
+        page_path: location.pathname,
+      });
+    };
+
+    document.addEventListener('click', onClick);
+    return () => document.removeEventListener('click', onClick);
+  }, [location.pathname]);
+
   return (
     <div id="top" className="relative min-h-screen overflow-x-hidden">
       <BackgroundFX />
