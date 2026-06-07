@@ -52,6 +52,16 @@ const App = () => {
     window.scrollTo({ top: 0, behavior: 'instant' });
   }, [location.pathname, location.hash]);
 
+  // Fire a GA4 page_view on every route change (SPA — no full reloads).
+  useEffect(() => {
+    if (!window.gtag) return;
+    window.gtag('event', 'page_view', {
+      page_path: location.pathname + location.search,
+      page_location: window.location.href,
+      page_title: document.title,
+    });
+  }, [location.pathname, location.search]);
+
   return (
     <div id="top" className="relative min-h-screen overflow-x-hidden">
       <BackgroundFX />
