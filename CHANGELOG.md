@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.7.3](https://github.com/mashhoorahdal/portfolio/compare/portfolio-v1.7.2...portfolio-v1.7.3) (2026-06-11)
+
+
+### Bug Fixes
+
+* let chat thread and DAG event log scroll under Lenis ([2d4168b](https://github.com/mashhoorahdal/portfolio/commit/2d4168bc7dbddcb1d367510f5ba3aaff0720280a))
+
 ## [1.7.2](https://github.com/mashhoorahdal/portfolio/compare/portfolio-v1.7.1...portfolio-v1.7.2) (2026-06-11)
 
 
