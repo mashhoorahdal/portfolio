@@ -14,7 +14,9 @@ export async function extractPdfText() {
   const workerUrl = (await import('pdfjs-dist/build/pdf.worker.min.mjs?url')).default;
   pdfjs.GlobalWorkerOptions.workerSrc = workerUrl;
 
-  const doc = await pdfjs.getDocument(RESUME_URL).promise;
+  const doc = await pdfjs.getDocument({
+    url: new URL(RESUME_URL, window.location.origin).href,
+  }).promise;
   const lines = [];
   for (let p = 1; p <= doc.numPages; p++) {
     const page = await doc.getPage(p);

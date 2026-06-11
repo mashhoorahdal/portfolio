@@ -53,6 +53,7 @@ const DagPlayground = () => {
   const dragRef = useRef(null);
   const idRef = useRef(1);
   const logRef = useRef(null);
+  const runRef = useRef(null);
 
   const nodeById = useMemo(
     () => Object.fromEntries(nodes.map((n) => [n.id, n])),
@@ -69,32 +70,37 @@ const DagPlayground = () => {
 
   const resetRun = useCallback(() => {
     setRunning(false);
+    runRef.current = null;
     setRun(null);
     setEvents([]);
   }, []);
 
   const startRun = () => {
     if (!nodes.length) return;
-    setRun(createRun(nodes));
+    const initial = createRun(nodes);
+    runRef.current = initial;
+    setRun(initial);
     setEvents([{ tick: 0, type: 'run_started', nodeId: null, detail: `${nodes.length} nodes, failure rate ${Math.round(failureRate * 100)}%` }]);
     setRunning(true);
     setConnectFrom(null);
     setSelected(null);
   };
 
+  // Tick outside React state updaters: advance() emits events, and updaters
+  // must stay pure (StrictMode runs them twice → duplicated events).
   useEffect(() => {
-    if (!running || !run) return;
+    if (!running) return;
     const id = setInterval(() => {
-      setRun((prev) => {
-        if (!prev || prev.finished) return prev;
-        const { state, events: newEvents } = advance(prev, nodes, edges, failureRate);
-        if (newEvents.length) setEvents((ev) => [...ev, ...newEvents]);
-        if (state.finished) setRunning(false);
-        return state;
-      });
+      const prev = runRef.current;
+      if (!prev || prev.finished) return;
+      const { state, events: newEvents } = advance(prev, nodes, edges, failureRate);
+      runRef.current = state;
+      setRun(state);
+      if (newEvents.length) setEvents((ev) => [...ev, ...newEvents]);
+      if (state.finished) setRunning(false);
     }, tickMs);
     return () => clearInterval(id);
-  }, [running, run, nodes, edges, failureRate, tickMs]);
+  }, [running, nodes, edges, failureRate, tickMs]);
 
   useEffect(() => {
     logRef.current?.scrollTo({ top: logRef.current.scrollHeight });
