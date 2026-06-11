@@ -56,14 +56,13 @@ src/
 ## Getting Started
 
 ### Prerequisites
-- Node.js 20+
-- npm
+- Bun 1.x ([install](https://bun.sh))
 
 ### Install
 ```bash
 git clone https://github.com/mashhoorahdal/portfolio.git
 cd portfolio
-npm install
+bun install
 ```
 
 ### Environment
@@ -77,24 +76,24 @@ Get the hash by submitting once to `https://formsubmit.co/<your-email>` and conf
 
 ### Develop
 ```bash
-npm run dev
+bun run dev
 ```
 Opens at `http://localhost:5173`.
 
 ### Build
 ```bash
-npm run build
+bun run build
 ```
 Output → `dist/`.
 
 ### Preview production build
 ```bash
-npm run preview
+bun run preview
 ```
 
 ### Lint
 ```bash
-npm run lint
+bun run lint
 ```
 
 ## Editing Content
@@ -119,7 +118,7 @@ Update this file, rebuild, redeploy.
 GitHub Pages via `gh-pages` branch:
 
 ```bash
-npm run deploy
+bun run deploy
 ```
 
 Runs `predeploy` (build) then publishes `dist/` to the `gh-pages` branch. CI uses GitHub Actions (see `.github/workflows/`).
@@ -128,11 +127,11 @@ Runs `predeploy` (build) then publishes `dist/` to the `gh-pages` branch. CI use
 
 | Script | Purpose |
 |---|---|
-| `npm run dev` | Vite dev server |
-| `npm run build` | Production build |
-| `npm run preview` | Serve `dist/` locally |
-| `npm run lint` | ESLint check |
-| `npm run deploy` | Build + publish to GitHub Pages |
+| `bun run dev` | Vite dev server |
+| `bun run build` | Production build |
+| `bun run preview` | Serve `dist/` locally |
+| `bun run lint` | ESLint check |
+| `bun run deploy` | Build + publish to GitHub Pages |
 
 ## Releases
 
