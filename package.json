@@ -13,9 +13,11 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@huggingface/transformers": "^4.2.0",
     "framer-motion": "^12.40.0",
     "lenis": "^1.3.23",
     "lucide-react": "^1.16.0",
+    "pdfjs-dist": "^6.0.227",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.8.0"

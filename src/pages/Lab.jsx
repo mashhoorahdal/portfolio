@@ -114,10 +114,10 @@ const Lab = () => {
         </motion.div>
 
         <h1 className="mt-6 font-display font-extrabold tracking-tight text-4xl sm:text-5xl md:text-6xl leading-[1.05] max-w-3xl">
-          <SplitHeadline>A playground of</SplitHeadline>
+          <SplitHeadline>Systems I build,</SplitHeadline>
           <br />
           <span className="text-accent">
-            <SplitHeadline>tiny machines.</SplitHeadline>
+            <SplitHeadline>running in your browser.</SplitHeadline>
           </span>
         </h1>
 
@@ -127,9 +127,9 @@ const Lab = () => {
           transition={{ duration: 0.9, delay: 0.45, ease: easeOut }}
           className="mt-5 text-fg-muted text-lg max-w-2xl"
         >
-          Self-contained interactive bits — particle physics, generative graphs, cellular
-          automata, weird typography, drifting sound. Each one runs live in the browser. No
-          build steps, no servers, code that does things when you touch it.
+          Interactive demos of the systems I work with for real — RAG retrieval over my
+          actual résumé, an event-driven DAG orchestrator with retries and failure
+          propagation. No servers, no mocks: everything computes live, client-side.
         </motion.p>
 
         <div className="mt-14 grid sm:grid-cols-2 gap-5 [perspective:1400px]">
