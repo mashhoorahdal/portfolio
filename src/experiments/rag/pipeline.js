@@ -1,4 +1,4 @@
-// RAG retrieval pipeline: PDF → text → chunks → embeddings → cosine search.
+// RAG retrieval pipeline: PDF → text → chunks → embeddings → hybrid search.
 // Heavy deps (pdfjs-dist, transformers.js) are dynamically imported so they
 // never touch the main bundle — they load on the visitor's first question.
 
@@ -38,9 +38,11 @@ export async function extractPdfText() {
   return lines;
 }
 
-// Section-aware chunking: group lines under their header, split long
-// sections into ~CHUNK_CHARS pieces on line boundaries.
-const CHUNK_CHARS = 380;
+// Fine-grained chunking: lines accumulate only until a sentence boundary
+// past MIN_CHARS, so each chunk stays close to a single bullet/topic.
+// Mixed-topic chunks average their embeddings into mush — keep them small.
+const MIN_CHARS = 100;
+const MAX_CHARS = 320;
 
 export function chunkLines(lines) {
   const sections = [];
@@ -65,13 +67,19 @@ export function chunkLines(lines) {
       buf = '';
     };
     for (const line of sectionLines) {
-      if (buf.length + line.length > CHUNK_CHARS && buf) push();
+      if (buf && (buf.length + line.length > MAX_CHARS || (buf.length >= MIN_CHARS && /[.!?]$/.test(buf)))) {
+        push();
+      }
       buf += (buf ? ' ' : '') + line;
     }
     push();
   }
   return chunks;
 }
+
+// Embed chunks with their section as context — "EXPERIENCE: Built Stripe
+// billing…" retrieves better than the bare bullet.
+export const embeddableText = (chunk) => `${chunk.section}: ${chunk.text}`;
 
 let embedderPromise = null;
 
@@ -113,11 +121,34 @@ const dot = (a, b) => {
   return s;
 };
 
-export function search(queryVector, chunkVectors, chunks, topK = 3) {
+const STOPWORDS = new Set([
+  'a', 'an', 'the', 'is', 'are', 'was', 'were', 'be', 'been', 'he', 'his',
+  'she', 'her', 'it', 'its', 'do', 'does', 'did', 'done', 'has', 'have',
+  'had', 'what', 'when', 'where', 'which', 'who', 'how', 'why', 'many',
+  'much', 'of', 'in', 'on', 'at', 'to', 'for', 'with', 'and', 'or', 'any',
+  'about', 'tell', 'me', 'you', 'your', 'i', 's',
+]);
+
+const contentTokens = (text) =>
+  (text.toLowerCase().match(/[a-z0-9+#./-]+/g) ?? []).filter((t) => !STOPWORDS.has(t));
+
+// Hybrid score: cosine carries meaning, keyword coverage rescues exact
+// terms ("Kafka", "2 years") that mean-pooled vectors dilute.
+export function search(query, queryVector, chunkVectors, chunks, topK = 3) {
+  const queryTokens = [...new Set(contentTokens(query))];
   return chunkVectors
-    .map((v, i) => ({ chunk: chunks[i], score: dot(queryVector, v) }))
+    .map((v, i) => {
+      const cosine = dot(queryVector, v);
+      const chunkTokens = new Set(contentTokens(embeddableText(chunks[i])));
+      const hits = queryTokens.filter((t) =>
+        chunkTokens.has(t) || [...chunkTokens].some((c) => c.startsWith(t) && t.length >= 4)
+      ).length;
+      const coverage = queryTokens.length ? hits / queryTokens.length : 0;
+      const score = 0.75 * cosine + 0.25 * coverage;
+      return { chunk: chunks[i], score, cosine, coverage };
+    })
     .sort((a, b) => b.score - a.score)
     .slice(0, topK);
 }
 
-export const SCORE_THRESHOLD = 0.25;
+export const SCORE_THRESHOLD = 0.18;

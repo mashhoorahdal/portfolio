@@ -5,6 +5,7 @@ import {
   SCORE_THRESHOLD,
   extractPdfText,
   chunkLines,
+  embeddableText,
   loadEmbedder,
   embed,
   search,
@@ -55,7 +56,7 @@ const RagChat = () => {
 
       setStage('index');
       setProgress(1);
-      const vectors = await embed(embedder, chunks.map((c) => c.text));
+      const vectors = await embed(embedder, chunks.map(embeddableText));
 
       indexRef.current = { embedder, chunks, vectors };
       setPhase('ready');
@@ -73,7 +74,7 @@ const RagChat = () => {
       const { embedder, chunks, vectors } = indexRef.current;
       const t0 = performance.now();
       const [queryVector] = await embed(embedder, [question]);
-      const results = search(queryVector, vectors, chunks).filter(
+      const results = search(question, queryVector, vectors, chunks).filter(
         (r) => r.score >= SCORE_THRESHOLD
       );
       const ms = Math.round(performance.now() - t0);
@@ -176,7 +177,7 @@ const RagChat = () => {
                     ))
                   )}
                   <p className="text-[10px] font-mono text-fg-subtle pl-1">
-                    retrieved in {msg.ms}ms · cosine similarity, top-3 ≥ {SCORE_THRESHOLD}
+                    retrieved in {msg.ms}ms · hybrid cosine + keyword score, top-3 ≥ {SCORE_THRESHOLD}
                   </p>
                 </div>
               </div>
@@ -313,9 +314,11 @@ const RagChat = () => {
               via transformers.js (WASM/WebGPU).
             </p>
             <p>
-              Each question is embedded with the same model and matched against the
-              chunks by cosine similarity — the top 3 above {SCORE_THRESHOLD} come
-              back as the answer, scores included. No question leaves your browser.
+              Each question is embedded with the same model and scored against the
+              chunks with a hybrid of cosine similarity (meaning) and keyword
+              coverage (exact terms like "Kafka" that pooled vectors dilute) — the
+              top 3 above {SCORE_THRESHOLD} come back as the answer, scores
+              included. No question leaves your browser.
             </p>
             <p className="text-xs text-fg-subtle">
               Honest scope: retrieval only — there's no generative model rewriting
