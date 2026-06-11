@@ -411,7 +411,7 @@ const DagPlayground = () => {
           <div className="px-4 py-2.5 border-b border-border text-xs font-mono uppercase tracking-wider text-fg-muted">
             Event log
           </div>
-          <div ref={logRef} className="flex-1 overflow-y-auto p-3 space-y-1 font-mono text-[11px]">
+          <div ref={logRef} data-lenis-prevent className="flex-1 overflow-y-auto p-3 space-y-1 font-mono text-[11px]">
             {events.length === 0 && (
               <p className="text-fg-subtle">No events yet — hit Run DAG.</p>
             )}

@@ -126,7 +126,7 @@ const RagChat = () => {
           )}
         </div>
 
-        <div ref={threadRef} className="h-[380px] overflow-y-auto p-4 space-y-4">
+        <div ref={threadRef} data-lenis-prevent className="h-[380px] overflow-y-auto p-4 space-y-4">
           {messages.length === 0 && (
             <div className="h-full flex flex-col items-center justify-center text-center gap-3">
               <p className="text-fg-muted text-sm max-w-sm">
