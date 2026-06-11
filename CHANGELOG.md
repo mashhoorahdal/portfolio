@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.7.1](https://github.com/mashhoorahdal/portfolio/compare/portfolio-v1.7.0...portfolio-v1.7.1) (2026-06-11)
+
+
+### Bug Fixes
+
+* pass url object to pdf.js getDocument and dedupe DAG events ([0270e5c](https://github.com/mashhoorahdal/portfolio/commit/0270e5c849fc916b65ba0997f235acbc3d4bba3d))
+
 ## [1.7.0](https://github.com/mashhoorahdal/portfolio/compare/portfolio-v1.6.0...portfolio-v1.7.0) (2026-06-11)
 
 
