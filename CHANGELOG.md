@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.7.2](https://github.com/mashhoorahdal/portfolio/compare/portfolio-v1.7.1...portfolio-v1.7.2) (2026-06-11)
+
+
+### Bug Fixes
+
+* improve RAG retrieval with finer chunks and hybrid scoring ([ce1fabb](https://github.com/mashhoorahdal/portfolio/commit/ce1fabb60d5fc56ee6b402e693b3fd80f947ecaf))
+
 ## [1.7.1](https://github.com/mashhoorahdal/portfolio/compare/portfolio-v1.7.0...portfolio-v1.7.1) (2026-06-11)
 
 
