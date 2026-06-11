@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.7.0](https://github.com/mashhoorahdal/portfolio/compare/portfolio-v1.6.0...portfolio-v1.7.0) (2026-06-11)
+
+
+### Features
+
+* replace lab experiments with résumé RAG chat and DAG orchestrator ([9052d9e](https://github.com/mashhoorahdal/portfolio/commit/9052d9ee217c898e5abfca0fcaeed9c44a5206ed))
+
+
+### Build
+
+* migrate from npm to bun ([a6cde71](https://github.com/mashhoorahdal/portfolio/commit/a6cde71ee5865e7388d3fb338ef58dd21fb96b67))
+
 ## [1.6.0](https://github.com/mashhoorahdal/portfolio/compare/portfolio-v1.5.0...portfolio-v1.6.0) (2026-06-07)
 
 
