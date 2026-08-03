@@ -27,9 +27,7 @@ jobs:
       - name: Build project
         env:
           VITE_FORMSUBMIT_KEY: ${{ secrets.VITE_FORMSUBMIT_KEY }}
-        run: |
-          echo "VITE_FORMSUBMIT_KEY: $VITE_FORMSUBMIT_KEY"
-          bun run build
+        run: bun run build
 
       - name: Setup Pages
         uses: actions/configure-pages@v6
