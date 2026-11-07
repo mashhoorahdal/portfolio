@@ -116,7 +116,7 @@ const experiences = [
     title: "Platform Engineer",
     company: "Turbolab Technologies Pvt Ltd",
     location: "Kochi, Kerala",
-    date: "2026 - Present",
+    date: "Jun 2026 - Present",
     summary:
       "Building the internal platform the infra team runs on — one console for the server fleet, alerts, incidents, uptime, and security — plus shared observability tooling and an AI layer that lets engineers and leadership query the estate in plain English.",
     projects: [
@@ -207,7 +207,7 @@ const experiences = [
     title: "Full Stack Developer",
     company: "Turbolab Technologies Pvt Ltd",
     location: "Kochi, Kerala",
-    date: "2024 - 2026",
+    date: "Jun 2024 - Jun 2026",
     summary:
       "Shipped production systems across three domains: an AI-powered app-review SaaS, an event-driven DAG orchestrator, and the company's core data platform.",
     projects: [
