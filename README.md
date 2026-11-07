@@ -1,6 +1,6 @@
 # Portfolio
 
-Personal portfolio of **Mashhoor Ahdal** — Full Stack Developer & AI Engineer.
+Personal portfolio of **Mashhoor Ahdal** — Platform Engineer, Full Stack & AI.
 
 Live: https://mashhoorahdal.github.io/portfolio
 

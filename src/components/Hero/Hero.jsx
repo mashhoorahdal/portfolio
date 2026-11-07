@@ -5,6 +5,7 @@ import { GithubIcon, LinkedinIcon } from '../icons/Brand';
 import { about, contact } from '../../portfolio';
 
 const ROLES = [
+  'Platform Engineer',
   'Full Stack Developer',
   'AI Engineer',
   'Backend Architect',
