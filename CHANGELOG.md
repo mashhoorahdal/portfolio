@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.8.0](https://github.com/mashhoorahdal/portfolio/compare/portfolio-v1.7.3...portfolio-v1.8.0) (2026-11-07)
+
+
+### Features
+
+* add platform engineer role with devops and tracing work ([bc1a5f3](https://github.com/mashhoorahdal/portfolio/commit/bc1a5f36922b9bf8375adf6f1d3c9b3f7a4fc0e5))
+* update resume with platform engineer role ([30e5263](https://github.com/mashhoorahdal/portfolio/commit/30e52636196d784c19430e963c8edc289a786c44))
+
+
+### Bug Fixes
+
+* set month-level dates for platform and full stack roles ([8be8ea8](https://github.com/mashhoorahdal/portfolio/commit/8be8ea89baa4325fcfa0e5943f788869531d2943))
+
 ## [1.7.3](https://github.com/mashhoorahdal/portfolio/compare/portfolio-v1.7.2...portfolio-v1.7.3) (2026-06-11)
 
 
