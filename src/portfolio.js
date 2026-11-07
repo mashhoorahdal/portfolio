@@ -11,7 +11,7 @@ const about = {
   description:
     "I’m a Platform Engineer with a Full Stack & AI background and 2+ years of experience building scalable SaaS platforms, AI-driven systems, and high-performance backends. I build the internal platform an infra team runs on — server inventory, alerting, incident management, uptime monitoring, fleet scanning, and OpenTelemetry tracing — and put AI on top of it with MCP tooling and LLM-driven alert investigation. I specialize in Django, FastAPI, Nomad, and distributed architectures, with strong focus on reliability, observability, and automation.",
   resume:
-    "https://drive.google.com/file/d/13xRcyBIkUM-803j9WR2QlhnJZVE_OuBg/view?usp=drive_link",
+    "https://mashhoorahdal.github.io/portfolio/resume.pdf",
   social: {
     linkedin: "https://linkedin.com/in/mashhoor-ahdal",
     github: "https://github.com/mashhoorahdal",
@@ -24,7 +24,7 @@ const projects = [
   {
     name: "PyPI Warehouse (Open Source)",
     description:
-      "Two merged PRs to PyPI Warehouse — the backend powering pypi.org. Improved collaborator notification emails (dynamic project/user links + a reusable FAQ helper) and fixed WCAG heading accessibility in project detail pages, keeping the i18n template pipeline intact.",
+      "Two merged PRs to PyPI Warehouse — the backend powering pypi.org. Improved collaborator notification emails (dynamic project/user links + a reusable FAQ helper), keeping the i18n template pipeline intact, with an open PR fixing WCAG heading accessibility on project pages.",
     stack: ["Python", "Jinja2", "i18n", "Accessibility"],
     sourceCode: "https://github.com/pypi/warehouse",
     livePreview: "https://pypi.org",
@@ -34,7 +34,7 @@ const projects = [
     description:
       "Mobile app for tracking event attendance in a membership organization. Members identify via membership-card QR (or number) to browse and register for events; admins manage the registry, events, and participant lists with CSV export. Privacy by design — member reads/writes go through Postgres security-definer RPCs that expose only safe fields.",
     stack: ["Expo", "React Native", "Supabase", "TypeScript"],
-    sourceCode: "https://github.com/mashhoorahdal/kkma_events_tracker",
+    sourceCode: "",
     livePreview: "",
   },
 ];
@@ -118,88 +118,44 @@ const experiences = [
     location: "Kochi, Kerala",
     date: "Jun 2026 - Present",
     summary:
-      "Building the internal platform the infra team runs on — one console for the server fleet, alerts, incidents, uptime, and security — plus shared observability tooling and an AI layer that lets engineers and leadership query the estate in plain English.",
+      "Own the internal platform the infra team runs on — fleet inventory, alerting, incidents, uptime, security, and tracing across 200+ servers.",
     projects: [
       {
-        name: "DevOps Tools v2 — Infrastructure Operations Platform",
-        summary:
-          "Monorepo (Django REST + React/TypeScript) replacing a legacy inventory tool. Single source of truth for servers, services, projects, cloud costs, backups, DNS domains, alerts, incidents, and monitors. Primary author.",
+        name: "Internal Operations Platform",
+        summary: "One console for inventory, alerting, incidents, and uptime across 200+ servers.",
         bullets: [
-          "Built server inventory with provider sync for OVH dedicated + VPS — Celery chord fan-out for cost and inventory sync, cached API clients with retry/timeouts, and granular sync endpoints driven by n8n.",
-          "Ported the SRE alert tool into the platform: Grafana/Sentry ingestion, dedup and auto-reopen, single-owner ack, time-based escalation to owners and managers, and threaded, severity-coloured Google Chat cards.",
-          "Shipped full incident management — incident queue, lifecycle command rail, activity timeline, corrective-action board, impacted-target linking, and a three-stage postmortem flow with a reviewer gate and report export.",
-          "Wrote an HTTP + SSL uptime monitor with second-node confirmation and retry logic to kill false positives, plus Zabbix 30-day peak metrics and per-server metric charts.",
-          "Deployed on Nomad behind Traefik with canary + auto-revert rollouts, prestart migrations, and a dedicated Celery worker group; GitLab CI builds images and pre-commit runs ruff, safety, and typecheck.",
+          "Built alerting with dedup, escalation, and Google Chat notifications, plus incident management with reviewed postmortems.",
+          "Synced cloud cost and inventory automatically and added HTTP/SSL uptime checks with second-node confirmation.",
+          "Ship with canary + auto-revert rollouts on Nomad behind Traefik, via GitLab CI.",
         ],
-        tech: [
-          "Django",
-          "DRF",
-          "Celery",
-          "Redis",
-          "PostgreSQL",
-          "React",
-          "TypeScript",
-          "TanStack Query",
-          "Nomad",
-          "Traefik",
-          "GitLab CI",
-          "Zabbix",
-          "n8n",
-        ],
+        tech: ["Django", "React", "TypeScript", "Celery", "PostgreSQL", "Nomad", "Traefik", "GitLab CI"],
       },
       {
-        name: "AI Ops — MCP Server, Assistant & Alert Investigation",
-        summary:
-          "AI layer over the platform so the team, CTO, and owners can ask about the estate in plain words instead of clicking through the UI.",
+        name: "Distributed Tracing",
+        summary: "OpenTelemetry tracing across 3 production services through a shared Python library.",
         bullets: [
-          "Built a read-only MCP server (stdio client + backend tool registry) with 25+ tools across servers, costs, alerts, incidents, CVEs, and scans — per-user API keys, throttling, output budgets, full call audit, and one-command setup for Claude Code and other AI tools.",
-          "Built an LLM alert investigator: on new alerts an agent loops over read-only tools (Grafana via MCP, Nomad, Zabbix, inventory DB) and posts a root-cause report with next steps into the alert's Google Chat thread, with backup-LLM fallback.",
-          "Built a natural-language DB assistant — the LLM writes guarded, masked read-only SQL and answers stream back over SSE as generated UI (KPIs, charts, tables) from the app's own components.",
-          "Added a production security detection worker over access logs — scanner-wave detection, token abuse from many IPs, and a daily AI threat hunt — alerting within about a minute.",
+          "Instrumented the Cloud backend, the Dragd crawler on Kubernetes, and the RAG API end to end.",
+          "Linked every Sentry error to its trace and stamped trace IDs into logs for faster debugging.",
         ],
-        tech: [
-          "MCP",
-          "Anthropic",
-          "OpenAI",
-          "LLM Agents",
-          "SSE",
-          "Postgres NOTIFY",
-          "Python",
-        ],
+        tech: ["OpenTelemetry", "Tempo", "Grafana", "Sentry", "Kubernetes", "Python"],
       },
       {
-        name: "Fleet Scanning & Vulnerability Detection",
-        summary:
-          "Agentless host scanning across production and staging, feeding the inventory and its Security tab.",
+        name: "AI Ops",
+        summary: "AI on top of the platform so engineers get answers without clicking through dashboards.",
         bullets: [
-          "Wrote an Ansible playbook collecting CPU, memory, disk, pending updates, services, listening ports, and packages from every host in one module call — nothing installed on targets, SSH via short-lived Vault-signed certificates.",
-          "Runs as a periodic Nomad job with an inventory generated from active servers; gzip results are ingested via API and matched to servers by private IP.",
-          "Detects high/critical CVEs on active servers via osv.dev with Debian version comparison and alerts new findings to Google Chat.",
+          "Built an MCP server (25+ tools) so engineers query the fleet from Claude Code.",
+          "Built an LLM agent that investigates new alerts and posts a root-cause report to the alert thread.",
         ],
-        tech: ["Ansible", "Vault", "Python", "osv.dev", "Nomad"],
+        tech: ["MCP", "LLM Agents", "Anthropic", "OpenAI", "Python"],
       },
       {
-        name: "Distributed Tracing Across Microservices",
-        summary:
-          "End-to-end OpenTelemetry tracing across the company's core services: built the shared client package, then instrumented and rolled it out service by service so one request can be followed from the Cloud API through to the crawler fleet in Tempo.",
+        name: "Fleet Security Scanning",
+        summary: "Agentless vulnerability scanning of 200+ servers.",
         bullets: [
-          "Built sh-observability-client, an internal Python package: framework-agnostic setup_tracing plus span attribute helpers so every service records the same attributes, exporting OTLP/gRPC to a node-local collector feeding Tempo's service graph. Supports Python 3.8–3.14, ships py.typed, published to the internal package index from GitLab CI with MkDocs docs.",
-          "Instrumented the ScrapeHero Cloud backend (Django + Celery on Nomad): server/client spans across views, DB queries, the chatbot, and outbound calls to the data platform, a per-process tracer for each Nomad group and forked Celery worker, and trace IDs returned in response headers.",
-          "Instrumented the Dragd crawler platform (Django on Kubernetes): propagated W3C trace context through scheduler start/resume/stop into spider lifecycle and kube-scheduler actions, tracked retry counts on spans, and stamped trace IDs into logs via a log filter.",
-          "Linked errors to traces: a Sentry before_send hook tags every issue with its OpenTelemetry trace ID and Tempo link, and the RAG API emits OTel traces alongside Langfuse on its own tracer provider.",
+          "Automated scans with Ansible and short-lived Vault-signed SSH certificates.",
+          "Alert on new high/critical CVEs and on attacks detected in production access logs.",
         ],
-        tech: [
-          "OpenTelemetry",
-          "Tempo",
-          "Grafana",
-          "Sentry",
-          "Django",
-          "Celery",
-          "Kubernetes",
-          "Nomad",
-          "Langfuse",
-          "Python",
-        ],
+        tech: ["Ansible", "Vault", "Python", "osv.dev"],
       },
     ],
   },
